@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+
+{% block content %}
+
+<h1>{{ page.title }}</h1>
+<h2>{{ page.subtitle }}</h2>
+{% if page.get_cta_url %}
+    {{ page.get_cta_url }}
+{% endif %}
+
+
+
+{% if page.custom_document %}
+<a href="{{ page.custom_document.url }}" download>{{ page.custom_document.title }}</a>
+{% endif %}
+
+
+
+{% image page.image width-400 %}
+
+
+{% comment %}
+Using an image as a template variable
+{% endcomment %}
+{% image page.image fill-90x200 as custom_img %}
+{{ custom_img.url }}
+{{ custom_img.width }}
+{{ custom_img.height }}
+<img src="{{ custom_img.url }}" alt="Image through src">
+<hr>
+<h2>Dynamic Serv View Below</h2>
+{% image_url page.image "fill-150x150|jpgquality-99" as custom_img2 %}
+
+{{ custom_img2 }}
+<img src="{{ custom_img2 }}" alt="">
+<hr>
+<h2>Custom Image 3</h2>
+{% image_url page.image "fill-100x100|jpegquality-40" as custom_img3 %}
+{{ custom_img3 }}
+<img src="{{ custom_img3 }}" alt="">
+{% endblock content %}

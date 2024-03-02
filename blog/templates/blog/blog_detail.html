@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    {{ page.title}}
+    {{ page.body|richtext }}
+
+    <div>
+        <h3>Tags:</h3>
+        <ul>
+            {% for tag in page.tags.all %}
+
+                <li>{{ tag.name }} - <a href="/blog/?tag={{ tag.slug }}">{{ tag.slug }}</a></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock content %}
