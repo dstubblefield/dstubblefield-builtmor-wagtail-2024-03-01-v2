@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+  @apply bg-primary-600 text-white;
+}
+
+.custom-hidden {
+  @apply hidden; /* This applies `display: none;` */
+  /* Add more Tailwind utilities if needed */
+}

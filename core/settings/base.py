@@ -24,14 +24,26 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
+    "admin_hooks",
     "blog",
+    "blocks",
     "documents",
+    "flex",
+    "faq",
     "home",
     "images",
+    "products",
+    "projects",
+    "services",
+    "site_settings",
+    "staff",
+    "wagtail_snippets",
     
     "search",
+    
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
+    "wagtail.contrib.routable_page",
     "wagtail.embeds",
     "wagtail.sites",
     "wagtail.users",
@@ -41,6 +53,10 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail",
+    'wagtail_modeladmin',
+    'wagtailmenus',
+    "wagtailmarkdown",
+    
     "modelcluster",
     "taggit",
     "django.contrib.admin",
@@ -64,6 +80,18 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "core.urls"
 
+WAGTAILMARKDOWN = {
+    "autodownload_fontawesome": False,
+    "allowed_tags": [],  # optional. a list of HTML tags. e.g. ['div', 'p', 'a']
+    "allowed_styles": [],  # optional. a list of styles
+    "allowed_attributes": {},  # optional. a dict with HTML tag as key and a list of attributes as value
+    "allowed_settings_mode": "extend",  # optional. Possible values: "extend" or "override". Defaults to "extend".
+    "extensions": [],  # optional. a list of python-markdown supported extensions
+    "extension_configs": {},  # optional. a dictionary with the extension name as key, and its configuration as value
+    "extensions_settings_mode": "extend",  # optional. Possible values: "extend" or "override". Defaults to "extend".
+    "tab_length": 4,  # optional. Sets the length of tabs used by python-markdown to render the output. This is the number of spaces used to replace with a tab character. Defaults to 4.
+}
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -77,6 +105,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "site_settings.context_processors.site_settings",
+
+                'wagtailmenus.context_processors.wagtailmenus',
             ],
         },
     },
@@ -173,3 +204,5 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 WAGTAILIMAGES_IMAGE_MODEL = 'images.CustomImage'
 WAGTAILIMAGES_EXTENSIONS = ["jpg", "jpeg", "gif", "png", "svg", "webp"]
 WAGTAILDOCS_DOCUMENT_MODEL = 'documents.CustomDocument'
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

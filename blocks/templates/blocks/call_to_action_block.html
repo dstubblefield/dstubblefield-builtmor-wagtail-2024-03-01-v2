@@ -1,0 +1,11 @@
+{% load wagtailcore_tags %}
+
+<div>
+    <p>{{ self.text|richtext }}</p>
+    
+    <a href="{{ self.page_chooser.url }}">
+        <button>{{ button_text }}</button>
+    </a>
+    
+    
+</div>

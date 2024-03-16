@@ -1,0 +1,15 @@
+{% wagtailimages_tags %}
+
+<div>
+
+    <div>
+    {% image self fill-300x200 %}
+    </div>
+
+    {% if self.caption %}
+    <div>
+        {{ self.caption}}
+    </div>
+    {% endif %}
+    
+</div>

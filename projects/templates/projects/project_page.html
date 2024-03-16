@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags wagtailmarkdown %}
+
+{% block content %}
+{% image page.project_hero fill-1536x1152 as custom_img %}
+    
+    
+<div class="relative mt-[-96px] h-screen mx-auto w-screen sm:px-0 lg:px-0 bg-no-repeat bg-cover bg-center" style="background-image: url('{{ custom_img.url }}');">
+    <div class="flex flex-col mx-auto justify-center items-center h-full text-center bg-black bg-opacity-50 text-white">
+        <h1 class="text-4xl font-bold">{{ self.title }}</h1>
+        <p class="text-xl mt-4">{{ self.subtitle}}</p>
+    </div>
+    
+</div>
+
+<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="absolute bottom-0 left-0 w-full pb-8 px-8 bg-gradient-to-t from-black to-transparent">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -mt-1/2">
+            <!-- Gallery thumbnails -->
+            <div class="bg-blacks-900 aspect-w-1 aspect-h-1">
+                <!-- Thumbnail image -->
+                <img src="{{custom_img.url}}" alt="Gallery image 1" class="object-cover">
+            </div>
+            
+            <!-- Repeat for other thumbnails -->
+        </div>
+    </div>
+</div>
+
+<div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+  <!-- Content goes here -->
+
+
+   
+
+    
+    {{ page.description}}
+    
+
+    <div>
+        <h1 class="text-secondary-600 text-3xl font-bold">
+    Tags:
+  </h1>
+        <ul>
+            {% for tag in page.tags.all %}
+
+                <li class="text-3xl font-bold underline">{{ tag.name }} - <a href="/blog/?tag={{ tag.slug }}">{{ tag.slug }}</a></li>
+
+            {% endfor %}
+        </ul>
+    </div>
+   
+</div>
+{% endblock content %}

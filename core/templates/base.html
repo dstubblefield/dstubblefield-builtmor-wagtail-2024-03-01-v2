@@ -1,4 +1,6 @@
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar menu_tags %}
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +26,7 @@
         {% endif %}
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
         {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
@@ -33,14 +35,18 @@
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
+        {% main_menu max_levels=3 template="menus/main_menu.html" %}
+
+        
 
         {% block content %}{% endblock %}
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/core.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 
         {% block extra_js %}
         {# Override this in templates to add extra javascript #}
         {% endblock %}
+
     </body>
 </html>

@@ -1,10 +1,12 @@
 anyascii==0.3.2
 asgiref==3.7.2
 beautifulsoup4==4.11.2
+bleach==4.1.0
 certifi==2024.2.2
 charset-normalizer==3.3.2
 defusedxml==0.7.1
 Django==5.0.2
+django-cogwheels==0.3
 django-filter==23.5
 django-modelcluster==6.3
 django-permissionedforms==0.1
@@ -18,9 +20,12 @@ html5lib==1.1
 idna==3.6
 l18n==2021.3
 laces==0.1.1
+Markdown==3.5.2
 openpyxl==3.1.2
+packaging==24.0
 pillow==10.2.0
 pillow_heif==0.15.0
+psycopg2==2.9.9
 pytz==2024.1
 requests==2.31.0
 six==1.16.0
@@ -29,5 +34,8 @@ sqlparse==0.4.4
 telepath==0.3.1
 urllib3==2.2.1
 wagtail==6.0.1
+wagtail-markdown==0.12.1
+wagtail-modeladmin==2.0.0
+wagtailmenus==4.0
 webencodings==0.5.1
 Willow==1.6.3

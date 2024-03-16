@@ -1,0 +1,18 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+
+<section class='something'>
+    {% for hero in self %}
+               
+                {% image hero.value.image_desktop fill-1600x600 %}
+                {% image hero.value.image_mobile fill-1600x1200 %}
+                {{ hero.value.title }} -Title <br>
+                {{ hero.value.text }} - Text <br>
+
+               <a href="{{ hero.value.page_chooser.url }}">
+                <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    {{ hero.value.button }}
+                </button>
+                </a>          
+    {% endfor %}
+
+</section>
